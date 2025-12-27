@@ -71,7 +71,7 @@ export class PWAInstallElement extends LitElement {
 	/** @internal */
 	private _manifest: Manifest = new Manifest();
 	/** @internal */
-	private _howToRequested = false;
+	private _howToRequested = true;
 	/** @internal */
 	private _galleryRequested = false;
 	/** @internal */

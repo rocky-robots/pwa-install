@@ -29,7 +29,7 @@ const template = (name: string, description: string, installDescription: string,
                         html`<hr><div class="description install-description">${installDescription? installDescription: `${msg('This site has app functionality.')} ${msg('Install it on your device for extensive experience and easy access.')}`}</div>` 
                         : ''}
                     ${screenshotsAvailable && installAvailable? html`<pwa-gallery .screenshots=${manifest.screenshots as ManifestScreenshot[]} .rtl="${isRTL}"></pwa-gallery>`: ''}
-                    ${!installAvailable? html`<div class="how-to-body">
+                    ${true? html`<hr><div class="how-to-body">
                         <div class="description-step">
                             <div class="svg-wrap">
                                 <svg height="24" viewBox="0 -960 960 960" width="24" fill=""><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
@@ -45,7 +45,7 @@ const template = (name: string, description: string, installDescription: string,
                     </div>`:''}
                     <div class="action-buttons">
                         ${screenshotsAvailable? html`<button class="material-button secondary" @click='${toggleGallery}'>${galleryRequested?msg('Less'):msg('More')}</button>`:''}
-                        ${installAvailable? html`<button class="material-button primary install" @click='${install}'>${msg('Install')}</button>`:`<svg class="check-icon" height="24px" viewBox="0 -960 960 960" width="24px" fill=""><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>`}
+                        ${false && installAvailable? html`<button class="material-button primary install" @click='${install}'>${msg('Install')}</button>`:`<svg class="check-icon" height="24px" viewBox="0 -960 960 960" width="24px" fill=""><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>`}
                     </div>
                 </div>
             </div>

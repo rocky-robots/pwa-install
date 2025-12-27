@@ -29,7 +29,7 @@ const template = (name: string, description: string, installDescription: string,
         </div>
         <div class="how-to-body">
             ${!disableDescription? // Harry added extra description
-            html`<hr><div class="description install-description">${installDescription?.length > 0 ? installDescription: `${msg('This site has app functionality.')} ${msg('Install it on your device for extensive experience and easy access.')}`}</div>` 
+            html`<div class="description-step">${installDescription?.length > 0 ? installDescription: `${msg('This site has app functionality.')} ${msg('Install it on your device for extensive experience and easy access.')}`}</div>` 
             : ''}
             <div class="description-step">
                 <div class="svg-wrap">

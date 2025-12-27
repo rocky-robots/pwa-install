@@ -31,7 +31,7 @@ const template = (name: string, description: string, installDescription: string,
                 : '' }
                 <div class="how-to-body">
                     <div class="how-to-description">
-                        ${!isDesktop? html`
+                        ${!isDesktop && false? html`
                         <div class="description-step">
                             <div class="svg-wrap">
                                 <svg id="pwa-safari" viewBox="0 0 20.283 19.932" width="24" height="24">

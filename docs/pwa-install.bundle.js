@@ -89,7 +89,7 @@ var PWAInstallComponent;(()=>{"use strict";var e={d:(t,a)=>{for(var i in a)e.o(a
                     </div>`}
                     <div class="action-buttons">
                         ${v?we`<button class="material-button secondary" @click='${p}'>${Be(h?"Less":"More")}</button>`:""}
-                        ${r?we`<button class="material-button primary install" @click='${c}'>${Be("Install")}</button>`:""}
+                        ${r?we`<button class="material-button primary install" @click='${c}'>${Be("Install")}</button>`:'<svg class="check-icon" height="24px" viewBox="0 -960 960 960" width="24px" fill=""><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>'}
                     </div>
                 </div>
             </div>

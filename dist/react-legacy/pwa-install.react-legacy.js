@@ -89,7 +89,7 @@ import{LitElement as e,css as a,html as t}from"lit";import{property as i,state a
                     </div>`}
                     <div class="action-buttons">
                         ${y?t`<button class="material-button secondary" @click='${g}'>${R(h?"Less":"More")}</button>`:""}
-                        ${c?t`<button class="material-button primary install" @click='${b}'>${R("Install")}</button>`:""}
+                        ${c?t`<button class="material-button primary install" @click='${b}'>${R("Install")}</button>`:'<svg class="check-icon" height="24px" viewBox="0 -960 960 960" width="24px" fill=""><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>'}
                     </div>
                 </div>
             </div>

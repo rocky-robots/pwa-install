@@ -3,6 +3,8 @@ type IProps = {
     name: string;
     description: string;
     icon: string;
+    installDescription: string;
+    disableDescription: boolean;
 };
 export default class PWABottomSheetElement extends LitElement {
     static get styles(): CSSStyleSheet[];

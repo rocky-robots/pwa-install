@@ -9,7 +9,9 @@ import styles from './styles-bottom-sheet.scss';
 type IProps = {
     name: string,
     description: string,
-    icon: string
+    icon: string,
+    installDescription: string,
+    disableDescription: boolean
 }
 
 import template from './template-bottom-sheet';
@@ -23,14 +25,16 @@ export default class PWABottomSheetElement extends LitElement {
 	@property({type: Object}) props: IProps = {
         name: '',
         description: '',
-        icon: ''
+        icon: '',
+		installDescription: '',
+		disableDescription: false
     };
     @property({type: Object}) install = {handleEvent: () => {}};
 	@property() hideDialog = () => {};
 	@property({type: Boolean}) disableClose = false;
 
 	@property({type: Boolean}) fallback = false;
-	@property({type: Boolean}) howToRequested = false;
+	@property({type: Boolean}) howToRequested = true; /// Harry added default true
 	@property({type: Object}) toggleHowTo = {handleEvent: () => {}};
 
 	private _callInstall = () => {
@@ -161,7 +165,9 @@ export default class PWABottomSheetElement extends LitElement {
 		touchTargetElement.addEventListener('mousedown', dragMouseDown);
 		touchTargetElement.addEventListener('touchstart', dragMouseDown, {passive: false});
 
-		closeDragElement(new MouseEvent('mouseup'), window.innerHeight - bottomSize - bounceOffset);
+		//closeDragElement(new MouseEvent('mouseup'), window.innerHeight - bottomSize - bounceOffset);
+		//// Harry modified to start long
+        closeDragElement(new MouseEvent('mouseup'), window.innerHeight - element.clientHeight);
 
 		return {
 			touchElement: touchTargetElement,
@@ -199,7 +205,9 @@ export default class PWABottomSheetElement extends LitElement {
 	}
 
 	render() {
-        return html`${template(this.props.name, this.props.description, this.props.icon, this._callInstall, this.fallback, this.howToRequested)}`;
+        ////// Harry added
+		//return html`${template(this.props.name, this.props.description, this.props.icon, this._callInstall, this.fallback, this.howToRequested)}`;
+        return html`${template(this.props.name, this.props.description, this.props.installDescription, this.props.disableDescription, this.props.icon, this._callInstall, this.fallback, this.howToRequested)}`;
 	}
 }
 
